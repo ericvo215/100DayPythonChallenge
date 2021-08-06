@@ -4,8 +4,8 @@ import time
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 
-CHROME_DRIVER_PATH = "/Users/Eric/Documents/chromedriver_win32/chromedriver.exe"
-SIMILAR_ACCOUNT = "anyataylorjoy"
+CHROME_DRIVER_PATH = "/Users/ericv/Documents/chromedriver_win32/chromedriver.exe"
+SIMILAR_ACCOUNT = "tomholland"
 USERNAME = os.environ["USERNAME"]
 PASSWORD = os.environ["PASSWORD"]
 
@@ -24,17 +24,16 @@ class InstaFollower:
         password_textbox.send_keys(PASSWORD)
         login_button = self.driver.find_element_by_xpath("//*[@id='loginForm']/div/div[3]")
         login_button.click()
-        time.sleep(2)
-        not_now = self.driver.find_element_by_xpath("//*[@id='react-root']/section/main/div/div/div/div/button")
+        time.sleep(4)
+        not_now = self.driver.find_element_by_xpath("/html/body/div[5]/div/div/div/div[3]/button[2]")
         not_now.click()
         time.sleep(2)
-        not_now2 = self.driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div[3]/button[2]")
-        not_now2.click()
+
 
     def find_followers(self):
         search_textbox = self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[2]/input")
         search_textbox.send_keys(SIMILAR_ACCOUNT)
-        time.sleep(1)
+        time.sleep(2)
         search_textbox.send_keys(Keys.RETURN)
         search_textbox.send_keys(Keys.RETURN)
         time.sleep(2)
